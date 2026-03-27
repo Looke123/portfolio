@@ -1436,6 +1436,96 @@
     .stagger-5 { transition-delay: 0.5s; }
     .stagger-6 { transition-delay: 0.6s; }
     .stagger-7 { transition-delay: 0.7s; }
+
+/*
+    .project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+*/
+
+    .project-image {
+    width: 100%;
+    max-height: 300px;
+    height: auto;
+    object-fit: contain;  /* ← Non taglia, mantiene proporzioni */
+    background: var(--bg-secondary);
+    border-radius: 6px;
+    margin: 1.5rem 0;
+    padding: 1rem;        /* ← Spazio interno per respirare */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    border: 1px solid var(--border-subtle);
+    }
+
+    /* VERTICAL VIDEO + SLIDER */
+    .project-video.vertical {
+      aspect-ratio: unset;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+      background: transparent;
+    }
+    .project-video.vertical > div {
+      width: 100%;
+      max-width: 280px;
+      position: relative;
+      aspect-ratio: 9/16;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #000;
+    }
+    .project-video.vertical iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+    .video-slider { margin-bottom: 1rem; }
+    .video-slide { display: none; }
+    .video-slide.active {
+      display: flex;
+      justify-content: center;
+    }
+    .video-slide > div {
+      width: 100%;
+      max-width: 280px;
+      position: relative;
+      aspect-ratio: 9/16;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #000;
+    }
+    .video-slide iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+    .slider-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      cursor: pointer;
+      border: none; padding: 0;
+      transition: background 0.2s ease;
+    }
+    .slider-dot.active,
+    .slider-dot:hover { background: #BFA181; }
+
+
+
+}
+
+
   </style>
 </head>
 
@@ -1698,7 +1788,7 @@
       <div class="projects-grid">
 
         <!-- 6.1 — Per Finta -->
-        <article class="project-card fade-in stagger-1" data-category="film">
+<!--        <article class="project-card fade-in stagger-1" data-category="film">
           <div class="project-header">
             <p class="project-year">2025</p>
             <span class="project-category">Film</span>
@@ -1719,7 +1809,38 @@
           <audio preload="metadata" data-title="Per Finta" data-category="Film">
             <source src="https://www.dropbox.com/scl/fi/49pq7dikyegf0xbz2vc5g/per-finta.mp3?rlkey=bnbpl04q6etkqg2r0kfqg6orc&st=m1io555e&raw=1" type="audio/mpeg">
           </audio>
+        </article
+-->
+        <article class="project-card fade-in stagger-1" data-category="film">
+          <div class="project-header">
+            <p class="project-year">2025</p>
+            <span class="project-category">Film</span>
+            <h3 class="project-title">Per Finta</h3>
+            <span class="project-client">Directed by Diego Fossati</span>
+          </div>
+          <div class="project-body">
+            <p class="project-role">Role: <strong>Composer</strong></p>
+            <p class="project-description">Original score for the award-winning short <em>"Per Finta"</em> (2025). Available on <a href="https://mubi.com/it/it/films/let-s-pretend" target="_blank" rel="noopener noreferrer">MUBI</a>.</p>
+            
+            <!-- NUOVA IMMAGINE -->
+            <img src="https://res.cloudinary.com/dlab7aogf/image/upload/v1774611706/locandina_perfinta_ntapz0.jpg" 
+                 alt="Per Finta poster" 
+                 class="project-image">
+            
+            <div class="project-actions">
+              <button class="project-play-btn" data-track-title="Per Finta" aria-label="Play Per Finta">
+                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                Play audio
+              </button>
+              <a href="https://mubi.com/it/it/films/let-s-pretend" target="_blank" rel="noopener noreferrer" class="project-link-btn">MUBI</a>
+            </div>
+          </div>
+          <audio preload="metadata" data-title="Per Finta" data-category="Film">
+            <source src="https://www.dropbox.com/scl/fi/49pq7dikyegf0xbz2vc5g/per-finta.mp3?rlkey=bnbpl04q6etkqg2r0kfqg6orc&st=m1io555e&raw=1" type="audio/mpeg">
+          </audio>
         </article>
+
+
 
         <!-- 6.2 — Weegle -->
         <article class="project-card fade-in stagger-2" data-category="branding">
@@ -1732,9 +1853,18 @@
           <div class="project-body">
             <p class="project-role">Role: <strong>Composer &amp; Sound Branding Strategist</strong></p>
             <p class="project-description">Social media and TikTok campaign for new brand Weegle (Elison). Full audio strategy and sound branding: sonic identity, campaign music, and branded assets for digital channels.</p>
+
+<!--        <MODIFICA VIDEO 16/)>
             <div class="project-video">
               <div style="padding:56.25% 0 0 0;position:relative;border-radius:6px;overflow:hidden;"><iframe src="https://player.vimeo.com/video/1083554004?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Weegle Campaign"></iframe></div>
             </div>
+-->
+            <div class="project-video vertical">
+              <div>
+                <iframe src="https://player.vimeo.com/video/1083554004?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Weegle Campaign"></iframe>
+              </div>
+            </div>
+
             <div class="project-actions">
               <button class="project-play-btn" data-track-title="P3 – 30s" aria-label="Ascolta Weegle">
                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
@@ -1769,12 +1899,36 @@
           <div class="project-body">
             <p class="project-role">Role: <strong>Composer &amp; Sound Designer</strong></p>
             <p class="project-description">Total sound branding for SLAM: sonic logo, sonic marketing strategy, branded audio materials, proprietary sound design folder recorded using the brand's products.</p>
+
+<!--        <MODIFICA VIDEO 16/9 + SLIDER>           
             <div class="project-video">
               <div style="padding:56.25% 0 0 0;position:relative;border-radius:6px;overflow:hidden;"><iframe src="https://player.vimeo.com/video/1020601994?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="SLAM Music"></iframe></div>
             </div>
+
             <div class="project-video" style="margin-top:0.5rem">
               <div style="padding:56.25% 0 0 0;position:relative;border-radius:6px;overflow:hidden;"><iframe src="https://player.vimeo.com/video/1020600621?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="SLAM Sound Design"></iframe></div>
             </div>
+-->
+            <div class="video-slider">
+              <div class="video-slides">
+                <div class="video-slide active">
+                  <div>
+                    <iframe src="https://player.vimeo.com/video/1020601994?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="SLAM Music"></iframe>
+                  </div>
+                </div>
+                <div class="video-slide">
+                  <div>
+                    <iframe src="https://player.vimeo.com/video/1020600621?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="SLAM Sound Design"></iframe>
+                  </div>
+                </div>
+              </div>
+              <div class="slider-dots">
+                <button class="slider-dot active"></button>
+                <button class="slider-dot"></button>
+              </div>
+            </div>
+
+
             <div class="project-actions" style="margin-top:1rem">
               <button class="project-details-btn" aria-expanded="false">More</button>
             </div>
@@ -1804,12 +1958,38 @@
           <div class="project-body">
             <p class="project-role">Role: <strong>Sound Edit &amp; Sound Design</strong></p>
             <p class="project-description">Sound editing and design for social video series. Produced at JackLeg Studio, Milan.</p>
+
+<!--        <MODIFICA VIDEO 16/9 + SLIDER>
             <div class="project-video">
               <div style="padding:56.25% 0 0 0;position:relative;border-radius:6px;overflow:hidden;"><iframe src="https://player.vimeo.com/video/1173358074?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="VIO App 1"></iframe></div>
             </div>
+
             <div class="project-video" style="margin-top:0.5rem">
               <div style="padding:56.25% 0 0 0;position:relative;border-radius:6px;overflow:hidden;"><iframe src="https://player.vimeo.com/video/1173358199?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="VIO App 2"></iframe></div>
             </div>
+-->
+
+            <div class="video-slider">
+              <div class="video-slides">
+                <div class="video-slide active">
+                  <div>
+                    <iframe src="https://player.vimeo.com/video/1173358074?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="VIO App 1"></iframe>
+                  </div>
+                </div>
+                <div class="video-slide">
+                  <div>
+                    <iframe src="https://player.vimeo.com/video/1173358199?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="VIO App 2"></iframe>
+                  </div>
+                </div>
+              </div>
+              <div class="slider-dots">
+                <button class="slider-dot active"></button>
+                <button class="slider-dot"></button>
+              </div>
+            </div>
+
+
+
           </div>
         </article>
 
@@ -1850,13 +2030,25 @@
           <div class="project-body">
             <p class="project-role">Role: <strong>Sound Design</strong></p>
             <p class="project-description">Project in collaboration with Mattia Tavani at JackLeg Studio, Milan.</p>
+
+<!--        <MODIFICA VIDEO 16/9>
             <div class="project-video">
               <div style="padding:56.25% 0 0 0;position:relative;border-radius:6px;overflow:hidden;"><iframe src="https://player.vimeo.com/video/1173358248?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Jackleg"></iframe></div>
             </div>
+-->
+
+          <div class="project-video vertical">
+            <div>
+              <iframe src="https://player.vimeo.com/video/1173358248?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Jackleg"></iframe>
+            </div>
+          </div>
+
+
           </div>
         </article>
 
         <!-- 6.7 — Diari sotto alle bombe -->
+<!--        
         <article class="project-card fade-in stagger-7" data-category="theater">
           <div class="project-header">
             <p class="project-year">2024</p>
@@ -1872,6 +2064,31 @@
             </div>
           </div>
         </article>
+-->
+
+        <article class="project-card fade-in stagger-6" data-category="theater">
+          <div class="project-header">
+            <p class="project-year">2024</p>
+            <span class="project-category">Theater</span>
+            <h3 class="project-title">Diari sotto alle bombe</h3>
+            <span class="project-client">"Bisogna saper uccidere quando è necessario"</span>
+          </div>
+          <div class="project-body">
+            <p class="project-role">Role: <strong>Composer & Sound Designer</strong></p>
+            <p class="project-description">Music and sound design for theatre production <em>"Diari sotto alle bombe: Bisogna saper uccidere quando è necessario"</em> (2024). Music builds emotional tension through original sonic textures.</p>
+            
+            <!-- NUOVA IMMAGINE -->
+            <img src="https://res.cloudinary.com/dlab7aogf/image/upload/v1774573225/diari_bmc3ay.png" 
+                 alt="Diari sotto le bombe poster" 
+                 class="project-image">
+            
+            <div class="project-actions">
+              <a href="https://www.youtube.com/watch?v=usC07nRYKnQ" target="_blank" rel="noopener noreferrer" class="project-link-btn">Trailer</a>
+              <a href="https://www.ilsonar.it/sonar.php?id=10946" target="_blank" rel="noopener noreferrer" class="project-link-btn">Il Sonar</a>
+            </div>
+          </div>
+        </article>
+
 
       </div><!-- end .projects-grid -->
     </div>
@@ -2547,6 +2764,21 @@
           }
         });
       });
+
+      // SLIDER
+      document.querySelectorAll('.video-slider').forEach(slider => {
+        const slides = slider.querySelectorAll('.video-slide');
+        const dots   = slider.querySelectorAll('.slider-dot');
+        dots.forEach((dot, i) => {
+          dot.addEventListener('click', () => {
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            slides[i].classList.add('active');
+            dot.classList.add('active');
+          });
+        });
+      });
+
 
     }); // end DOMContentLoaded
   </script>
