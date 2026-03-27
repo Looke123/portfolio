@@ -1709,7 +1709,7 @@
             <p class="project-role">Role: <strong>Compositore</strong></p>
             <p class="project-description">Original score for the award-winning short "Per Finta" (2025). Available on <a href="https://mubi.com/it/it/films/let-s-pretend" target="_blank" rel="noopener noreferrer">MUBI</a>.</p>
             <div class="project-actions">
-              <button class="project-play-btn" data-track-index="0" aria-label="Ascolta Per Finta">
+              <button class="project-play-btn" data-track-title="Per Finta" aria-label="Ascolta Per Finta">
                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                 Play audio
               </button>
@@ -1736,7 +1736,7 @@
               <div style="padding:56.25% 0 0 0;position:relative;border-radius:6px;overflow:hidden;"><iframe src="https://player.vimeo.com/video/1083554004?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Weegle Campaign"></iframe></div>
             </div>
             <div class="project-actions">
-              <button class="project-play-btn" data-track-index="1" aria-label="Ascolta Weegle">
+              <button class="project-play-btn" data-track-title="P3 – 30s" aria-label="Ascolta Weegle">
                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                 Play audio
               </button>
@@ -2146,7 +2146,7 @@
       // Tutti i file audio nella cartella audio/ che vuoi
       // usare come showreel. Aggiorna src e name a piacere.
       // ============================================
-      const showreelTracks = [
+  /*    const showreelTracks = [
         { name: 'Per Finta',        src: 'https://www.dropbox.com/scl/fi/49pq7dikyegf0xbz2vc5g/per-finta.mp3?rlkey=bnbpl04q6etkqg2r0kfqg6orc&st=m1io555e&raw=1' },
         { name: 'Bigné',            src: 'https://www.dropbox.com/scl/fi/lpbdo150kmk4dsxf2t8zy/Bign.mp3?rlkey=393izkolhvm290npp1fwoobcz&st=tbqje6eg&raw=1' },
         { name: 'JBL',              src: 'https://www.dropbox.com/scl/fi/fnk5lnft007i2r8xaxr03/JBL.mp3?rlkey=p7t9i5gmjvcoaobyv79sqvhju&st=cidrqonw&raw=1' },
@@ -2170,6 +2170,35 @@
         { title: 'P4 – 30s',        category: 'Sound Branding', src: 'https://www.dropbox.com/scl/fi/xnwqbjktlkf2rc83nwj31/P4_30s.mp3?rlkey=vyyv8nl681qp5ur69kg3qa5sk&st=thg9lbv4&raw=1' },
         { title: 'Ulisse',          category: 'Film',           src: 'https://www.dropbox.com/scl/fi/takngne1yndwd9cdc8yw3/Ulisse.mp3?rlkey=44d74s4aq8xw5dwvdz3w9803t&st=r83i4au1&raw=1' }
       ];
+
+  */
+
+        const showreelTracks = [
+        { name: 'P1 – 30s',         src: 'https://www.dropbox.com/scl/fi/xd2gev0xepzor5mt5h801/P1_30s.mp3?rlkey=j781py9dkllxo2j18fph517pn&st=zvlcium4&raw=1' },
+        { name: 'P2 – 30s',         src: 'https://www.dropbox.com/scl/fi/8nzph9iyig6ar4i74kudr/P2_30s.mp3?rlkey=1weds8yggded51nv96cpr1msy&st=hzy7enjl&raw=1' },
+        { name: 'P3 – 30s',         src: 'https://www.dropbox.com/scl/fi/4n1de01lim0pg00zz1ek8/P3_30s.mp3?rlkey=j99h0we7yff0wu5olum7upry7&st=htk22r2v&raw=1' },
+        { name: 'P4 – 30s',         src: 'https://www.dropbox.com/scl/fi/xnwqbjktlkf2rc83nwj31/P4_30s.mp3?rlkey=vyyv8nl681qp5ur69kg3qa5sk&st=thg9lbv4&raw=1' },
+        { name: 'JBL',              src: 'https://www.dropbox.com/scl/fi/fnk5lnft007i2r8xaxr03/JBL.mp3?rlkey=p7t9i5gmjvcoaobyv79sqvhju&st=cidrqonw&raw=1' },
+        { name: 'Middleage Theme',  src: 'https://www.dropbox.com/scl/fi/csit9162jcj6y18lmm41t/Middleage-Theme.mp3?rlkey=p4lh2cw7tz5lbrsl255fe31xm&st=ms8gz3qp&raw=1' },
+        { name: 'Bigné',            src: 'https://www.dropbox.com/scl/fi/lpbdo150kmk4dsxf2t8zy/Bign.mp3?rlkey=393izkolhvm290npp1fwoobcz&st=tbqje6eg&raw=1' },
+        { name: 'Ulisse',           src: 'https://www.dropbox.com/scl/fi/takngne1yndwd9cdc8yw3/Ulisse.mp3?rlkey=44d74s4aq8xw5dwvdz3w9803t&st=r83i4au1&raw=1' },
+        { name: 'Per Finta',        src: 'https://www.dropbox.com/scl/fi/49pq7dikyegf0xbz2vc5g/per-finta.mp3?rlkey=bnbpl04q6etkqg2r0kfqg6orc&st=m1io555e&raw=1' }
+      ];
+
+      // Playlist per il global player (progetti)
+      const playlist = [
+        { title: 'P1 – 30s',        category: 'Sound Branding', src: 'https://www.dropbox.com/scl/fi/xd2gev0xepzor5mt5h801/P1_30s.mp3?rlkey=j781py9dkllxo2j18fph517pn&st=zvlcium4&raw=1' },
+        { title: 'P2 – 30s',        category: 'Sound Branding', src: 'https://www.dropbox.com/scl/fi/8nzph9iyig6ar4i74kudr/P2_30s.mp3?rlkey=1weds8yggded51nv96cpr1msy&st=hzy7enjl&raw=1' },
+        { title: 'P3 – 30s',        category: 'Sound Branding', src: 'https://www.dropbox.com/scl/fi/4n1de01lim0pg00zz1ek8/P3_30s.mp3?rlkey=j99h0we7yff0wu5olum7upry7&st=htk22r2v&raw=1' },
+        { title: 'P4 – 30s',        category: 'Sound Branding', src: 'https://www.dropbox.com/scl/fi/xnwqbjktlkf2rc83nwj31/P4_30s.mp3?rlkey=vyyv8nl681qp5ur69kg3qa5sk&st=thg9lbv4&raw=1' },
+        { title: 'JBL',             category: 'Advertising',    src: 'https://www.dropbox.com/scl/fi/fnk5lnft007i2r8xaxr03/JBL.mp3?rlkey=p7t9i5gmjvcoaobyv79sqvhju&st=cidrqonw&raw=1' },
+        { title: 'Middleage Theme', category: 'Film',           src: 'https://www.dropbox.com/scl/fi/csit9162jcj6y18lmm41t/Middleage-Theme.mp3?rlkey=p4lh2cw7tz5lbrsl255fe31xm&st=ms8gz3qp&raw=1' },
+        { title: 'Bigné',           category: 'Advertising',    src: 'https://www.dropbox.com/scl/fi/lpbdo150kmk4dsxf2t8zy/Bign.mp3?rlkey=393izkolhvm290npp1fwoobcz&st=tbqje6eg&raw=1' },
+        { title: 'Ulisse',          category: 'Film',           src: 'https://www.dropbox.com/scl/fi/takngne1yndwd9cdc8yw3/Ulisse.mp3?rlkey=44d74s4aq8xw5dwvdz3w9803t&st=r83i4au1&raw=1' },
+        { title: 'Per Finta',       category: 'Film',           src: 'https://www.dropbox.com/scl/fi/49pq7dikyegf0xbz2vc5g/per-finta.mp3?rlkey=bnbpl04q6etkqg2r0kfqg6orc&st=m1io555e&raw=1' }
+      ];
+      
+
 
       // ============================================
       // MOBILE NAVIGATION
@@ -2351,11 +2380,21 @@
       // ============================================
       // PROJECT PLAY BUTTONS
       // ============================================
-      document.querySelectorAll('.project-play-btn').forEach(btn => {
+/*      document.querySelectorAll('.project-play-btn').forEach(btn => {
         btn.addEventListener('click', function () {
           loadTrack(parseInt(this.dataset.trackIndex));
         });
       });
+*/
+        document.querySelectorAll('.project-play-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+          const trackTitle = this.getAttribute('data-track-title');
+          const track = playlist.find(p => p.title === trackTitle);
+            if (track) {
+            loadTrack(playlist.indexOf(track));
+            }
+          });
+        });
 
       // ============================================
       // TIMELINE PLAY BUTTONS
